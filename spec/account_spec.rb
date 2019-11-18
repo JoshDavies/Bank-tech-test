@@ -1,6 +1,6 @@
 require 'account'
 
-Describe 'Account' do
+describe Account do
 
 
 
