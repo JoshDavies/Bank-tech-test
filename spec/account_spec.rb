@@ -16,5 +16,10 @@ describe Account do
       account.deposit('2.01')
       expect(account.current_balance).to eq('2.01')
     end
+    it 'can make multiple deposits' do
+      account.deposit('2.01')
+      account.deposit('12.15')
+      expect(account.current_balance).to eq('14.16')
+    end
   end
 end
