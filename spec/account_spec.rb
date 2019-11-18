@@ -29,4 +29,9 @@ describe Account do
       expect(account.current_balance).to eq('-1.05')
     end
   end
+  it 'can make multiple withdrawals' do
+    account.withdraw('2.01')
+    account.withdraw('12.15')
+    expect(account.current_balance).to eq('-14.16')
+  end
 end
