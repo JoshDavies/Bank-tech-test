@@ -1,15 +1,5 @@
 # Bank-tech-test
 
-
-
-
-
-
-
-
-
-# Bank tech test
-
 ## Quickstart
 
 First, clone this repository. Then:
