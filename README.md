@@ -25,10 +25,10 @@ as an account holder
 I want to be able to make a withdrawal
 
 as an account holder
-I want to view a print out of my history of previous deposits and withdrawals
+I want to view a print out of my history of previous deposits and withdrawals (reverse order)
 
 as an account holder
-i want to see the date when each transaction was made. (reverse order)
+i want to see the date when each transaction was made.
 
 As an account holder
 to avoid tampering of accidental miss-use

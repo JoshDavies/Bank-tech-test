@@ -28,10 +28,20 @@ describe Account do
       account.withdraw('1.05')
       expect(account.current_balance).to eq('-1.05')
     end
+    it 'can make multiple withdrawals' do
+      account.withdraw('2.01')
+      account.withdraw('12.15')
+      expect(account.current_balance).to eq('-14.16')
+    end
   end
-  it 'can make multiple withdrawals' do
-    account.withdraw('2.01')
-    account.withdraw('12.15')
-    expect(account.current_balance).to eq('-14.16')
+
+  describe '#print_statement' do
+    it 'prints out an accounts previous deposits and withdrawals (reverse order)' do
+      account.deposit('12.15')
+      expect(account.print_statement).to be('
+        credit || debit || balance
+        12.15 || || 12.15
+        ')
+    end
   end
 end
