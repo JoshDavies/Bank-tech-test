@@ -10,4 +10,8 @@ class Account
   def current_balance
     '%.2f' % @balance
   end
+
+  def deposit(amount)
+    @balance +=  BigDecimal.new(amount)
+  end
 end

@@ -13,8 +13,8 @@ describe Account do
 
   describe '#deposit' do
     it 'adds an amount to a customers bank balance' do
-      account.deposit(2.01)
-      expect(customer.current_balance).to eq('2.01')
+      account.deposit('2.01')
+      expect(account.current_balance).to eq('2.01')
     end
   end
 end
