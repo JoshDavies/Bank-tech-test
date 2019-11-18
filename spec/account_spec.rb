@@ -38,9 +38,10 @@ describe Account do
   describe '#print_statement' do
     it 'prints an accounts previous deposits & withdrawals (reverse order)' do
       account.deposit('12.15')
+      account.withdraw('2.15')
       expect do
         account.print_statement
-      end.to output("credit || debit || balance\n12.15 || || 12.15\n").to_stdout
+      end.to output("credit || debit || balance\n  || 2.15 || 10.00\n12.15 ||   || 12.15\n").to_stdout
     end
   end
 end

@@ -5,6 +5,10 @@ require 'money'
 class Account
   def initialize
     @balance = BigDecimal('0.00')
+    @statement = [
+      {credit: '12.15', debit: ' ', balance: '12.15'},
+      {credit: ' ', debit: '2.15', balance: '10.00'}
+      ]
   end
 
   def current_balance
@@ -21,6 +25,8 @@ class Account
 
   def print_statement
     puts 'credit || debit || balance'
-    puts '12.15 || || 12.15'
+    @statement.reverse.each{ |transaction|
+      puts "#{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
+    }
   end
 end
