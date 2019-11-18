@@ -25,7 +25,7 @@ describe Account do
 
   describe '#withdraw' do
     it 'minuses an amount to a customers bank balance' do
-      account.withdraw(1.05)
+      account.withdraw('1.05')
       expect(account.current_balance).to eq('-1.05')
     end
   end
