@@ -36,12 +36,11 @@ describe Account do
   end
 
   describe '#print_statement' do
-    it 'prints out an accounts previous deposits and withdrawals (reverse order)' do
+    it 'prints an accounts previous deposits & withdrawals (reverse order)' do
       account.deposit('12.15')
-      expect(account.print_statement).to be('
-        credit || debit || balance
-        12.15 || || 12.15
-        ')
+      expect do
+        account.print_statement
+      end.to output("credit || debit || balance\n12.15 || || 12.15\n").to_stdout
     end
   end
 end

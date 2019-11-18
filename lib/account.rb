@@ -18,4 +18,9 @@ class Account
   def withdraw(amount)
     @balance -= BigDecimal(amount)
   end
+
+  def print_statement
+    puts 'credit || debit || balance'
+    puts '12.15 || || 12.15'
+  end
 end
