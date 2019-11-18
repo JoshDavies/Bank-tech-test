@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'money'
 
 class Account
@@ -7,6 +8,6 @@ class Account
   end
 
   def current_balance
-    '%.2f' % (@balance)
+    '%.2f' % @balance
   end
 end
