@@ -22,4 +22,11 @@ describe Account do
       expect(account.current_balance).to eq('14.16')
     end
   end
+
+  describe '#withdraw' do
+    it 'minuses an amount to a customers bank balance' do
+      account.withdraw(1.05)
+      expect(account.current_balance).to eq('-1.05')
+    end
+  end
 end

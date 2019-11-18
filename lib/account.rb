@@ -12,6 +12,6 @@ class Account
   end
 
   def deposit(amount)
-    @balance +=  BigDecimal.new(amount)
+    @balance += BigDecimal(amount)
   end
 end
