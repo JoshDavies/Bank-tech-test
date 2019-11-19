@@ -55,3 +55,7 @@ class Account
     "#{time.day}/#{time.month}/#{time.year}"
   end
 end
+
+account = Account.new
+account.deposit('0.00')
+account.print_statement
