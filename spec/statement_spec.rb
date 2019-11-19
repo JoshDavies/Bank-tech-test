@@ -8,17 +8,17 @@ describe Statement do
 
   let(:transactions) {
     [
-      { date: '19/11/2019', credit: '1000.00', debit: nil, balance: '1000.00' },
-      { date: '19/11/2019', credit: '2000.00', debit: nil, balance: '3000.00' },
-      { date: '19/11/2019', credit: nil, debit: '500.00', balance: '2500.00' }
+      { date: '10/01/2012', credit: '1000.00', debit: nil, balance: '1000.00' },
+      { date: '13/01/2012', credit: '2000.00', debit: nil, balance: '3000.00' },
+      { date: '14/01/2012', credit: nil, debit: '500.00', balance: '2500.00' }
     ]
   }
 
   let(:statement_print_out) {
 "date || credit || debit || balance
-19/11/2019 ||  || 500.00 || 2500.00
-19/11/2019 || 2000.00 ||  || 3000.00
-19/11/2019 || 1000.00 ||  || 1000.00
+14/01/2012 ||  || 500.00 || 2500.00
+13/01/2012 || 2000.00 ||  || 3000.00
+10/01/2012 || 1000.00 ||  || 1000.00
 "
   }
 
