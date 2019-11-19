@@ -62,7 +62,3 @@ class Account
     raise StandardError.new 'Invalid Input.'
   end
 end
-
-account = Account.new
-account.deposit('0.00')
-account.print_statement
