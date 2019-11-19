@@ -50,10 +50,3 @@ class Account
     "#{time.day}/#{time.month}/#{time.year}"
   end
 end
-
-account = Account.new
-account.deposit('1000.00')
-account.deposit('2000.00')
-account.withdraw('500.00')
-p account.transactions
-account.print_statement

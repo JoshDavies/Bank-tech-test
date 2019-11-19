@@ -8,8 +8,20 @@ First, clone this repository. Then:
 > bundle install
 > rspec # Run the tests to ensure it works
 
+> irb # to interact with the code via an IRB REPL.
 ```
-  * interact with the code via the IRB REPL.  
+
+```bash
+> require './lib/account.rb' # require the file
+> account = Account.new # create a new account
+> account.deposit('1.00') # to make a deposit
+> account.withdraw('1.00') # to make a withdrawal
+> account.current_balance # to see the accounts balance
+> account.print_statement # to print out the accounts full transaction history
+> exit # to quit
+
+```
+
 
 ----------
 ## User Stories
@@ -30,20 +42,21 @@ I want to view a print out of my history of previous deposits and withdrawals (r
 as an account holder
 i want to see the date when each transaction was made.
 
-As an account holder
-to avoid tampering or accidental miss-use
-my account info must be stored privately
+As an admin
+to avoid tampering or accidental miss-use of the program
+logic must be private
 
 ```
 ## Class Diagram (UML)
 ### Objects:
-Account.
-transaction = { date: , credit: , debit: , balance: }
+- Account. transaction = { date: , credit: , debit: , balance: }
+- Statement
 
 ### Messages:
+- current_balance
 - deposit (amount)
 - withdraw (amount)
-- print_statement
+- print_statement (transactions)
 
 -------------
 ### Acceptance criteria
