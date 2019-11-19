@@ -37,11 +37,15 @@ describe Account do
 
   describe '#print_statement' do
     it 'prints an accounts previous deposits & withdrawals (reverse order)' do
-      account.deposit('12.15')
-      account.withdraw('2.15')
+      allow(account).to receive(:todays_date).and_return('10/01/2012')
+      account.deposit('1000.00')
+      allow(account).to receive(:todays_date).and_return('13/01/2012')
+      account.deposit('2000.00')
+      allow(account).to receive(:todays_date).and_return('14/01/2012')
+      account.withdraw('500.00')
       expect do
         account.print_statement
-      end.to output("credit || debit || balance\n || 2.15 || 10.00\n12.15 ||  || 12.15\n").to_stdout
+      end.to output("date || credit || debit || balance\n14/01/2012 ||  || 500.00 || 2500.00\n13/01/2012 || 2000.00 ||  || 3000.00\n10/01/2012 || 1000.00 ||  || 1000.00\n").to_stdout
     end
   end
 end

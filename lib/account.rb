@@ -13,36 +13,49 @@ class Account
   end
 
   def deposit(amount)
-    @balance += BigDecimal(amount)
+    add_to_balance(amount)
     record_transaction(amount, nil)
   end
 
   def withdraw(amount)
-    @balance -= BigDecimal(amount)
+    subtract_from_balance(amount)
     record_transaction(nil, amount)
   end
 
   def print_statement
-    puts 'credit || debit || balance'
-    transactions
+    puts 'date || credit || debit || balance'
+    print_transactions
   end
-
+  attr_reader :balance
   private
 
   def record_transaction(deposit, withdraw)
-    transaction = { credit: "#{deposit}", debit: "#{withdraw}", balance: "#{current_balance}" }
+    transaction = { date: todays_date, credit: deposit, debit: withdraw, balance: current_balance }
     @statement.push(transaction)
   end
 
-  def transactions
+  def add_to_balance(amount)
+    @balance += BigDecimal(amount)
+  end
+
+  def subtract_from_balance(amount)
+    @balance -= BigDecimal(amount)
+  end
+
+  def print_transactions
     @statement.reverse.each do |transaction|
-      puts "#{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
+      puts "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
     end
+  end
+
+  def todays_date
+    time = Time.new
+    "#{time.day}/#{time.month}/#{time.year}"
   end
 end
 
 account = Account.new
 account.deposit('14.23')
-account.deposit('1.31')
-account.withdraw('3.28')
+account.withdraw('4.23')
 account.print_statement
+p account.balance
