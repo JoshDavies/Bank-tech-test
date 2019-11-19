@@ -8,8 +8,10 @@ class Account
     @statement = []
   end
 
+  attr_reader :balance, :statement
+
   def current_balance
-    '%.2f' % @balance
+    '%.2f' % balance
   end
 
   def deposit(amount)
@@ -26,12 +28,12 @@ class Account
     puts 'date || credit || debit || balance'
     print_transactions
   end
-  attr_reader :balance
+
   private
 
   def record_transaction(deposit, withdraw)
     transaction = { date: todays_date, credit: deposit, debit: withdraw, balance: current_balance }
-    @statement.push(transaction)
+    statement.push(transaction)
   end
 
   def add_to_balance(amount)
@@ -43,7 +45,7 @@ class Account
   end
 
   def print_transactions
-    @statement.reverse.each do |transaction|
+    statement.reverse.each do |transaction|
       puts "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
     end
   end
@@ -55,7 +57,6 @@ class Account
 end
 
 account = Account.new
-account.deposit('14.23')
-account.withdraw('4.23')
-account.print_statement
+account.deposit('2.01')
 p account.balance
+p account.statement
