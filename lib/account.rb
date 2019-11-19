@@ -14,19 +14,27 @@ class Account
 
   def deposit(amount)
     @balance += BigDecimal(amount)
-    transaction = { credit: "#{amount}", balance: "#{current_balance}" }
-    @statement.push(transaction)
-    p @statement
+    record_transaction(amount, nil)
   end
 
   def withdraw(amount)
     @balance -= BigDecimal(amount)
-    transaction = { debit: "#{amount}", balance: "#{current_balance}" }
-    @statement.push(transaction)
+    record_transaction(nil, amount)
   end
 
   def print_statement
     puts 'credit || debit || balance'
+    transactions
+  end
+
+  private
+
+  def record_transaction(deposit, withdraw)
+    transaction = { credit: "#{deposit}", debit: "#{withdraw}", balance: "#{current_balance}" }
+    @statement.push(transaction)
+  end
+
+  def transactions
     @statement.reverse.each do |transaction|
       puts "#{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
     end
