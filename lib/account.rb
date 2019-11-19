@@ -51,7 +51,9 @@ class Account
   end
 end
 
-# account = Account.new
-# account.deposit('2.01')
-# account.withdraw('2.01')
-# account.print_statement
+account = Account.new
+account.deposit('1000.00')
+account.deposit('2000.00')
+account.withdraw('500.00')
+p account.transactions
+account.print_statement

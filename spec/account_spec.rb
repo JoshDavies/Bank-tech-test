@@ -15,9 +15,6 @@ describe Account do
     it 'adds an amount to a customers total bank balance' do
       allow(account).to receive(:todays_date).and_return('18/11/2019')
       account.deposit('2.01')
-      expect(account.transactions).to eq([
-        {:balance=>"2.01", :credit=>"2.01", :date=>"18/11/2019", :debit=>nil}
-      ])
       allow(account).to receive(:todays_date).and_return('19/11/2019')
       account.deposit('12.15')
       expect(account.transactions).to eq([
@@ -31,9 +28,6 @@ describe Account do
     it 'minuses an amount to a customers bank balance' do
       allow(account).to receive(:todays_date).and_return('18/11/2019')
       account.withdraw('2.01')
-      expect(account.transactions).to eq([
-        {:balance=>"-2.01", :credit=>nil, :date=>"18/11/2019", :debit=>"2.01"}
-      ])
       allow(account).to receive(:todays_date).and_return('19/11/2019')
       account.withdraw('12.15')
       expect(account.transactions).to eq([
