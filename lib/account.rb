@@ -4,10 +4,10 @@ require 'money'
 require_relative 'statement'
 
 class Account
-  def initialize
+  def initialize(statement = Statement.new)
     @balance = BigDecimal('0.00')
     @transactions = []
-    @statement = Statement.new
+    @statement = statement
   end
 
   attr_reader :balance, :transactions
