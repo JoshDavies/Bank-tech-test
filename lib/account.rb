@@ -17,11 +17,13 @@ class Account
   end
 
   def deposit(amount)
+    valid_input?(amount)
     add_to_balance(amount)
     record_transaction(amount, nil)
   end
 
   def withdraw(amount)
+    valid_input?(amount)
     subtract_from_balance(amount)
     record_transaction(nil, amount)
   end
@@ -53,6 +55,11 @@ class Account
   def todays_date
     time = Time.new
     "#{time.day}/#{time.month}/#{time.year}"
+  end
+
+  def valid_input?(amount)
+    return unless amount.to_f.negative? || amount.count('a-zA-Z').positive?
+    raise StandardError.new 'Invalid Input.'
   end
 end
 
