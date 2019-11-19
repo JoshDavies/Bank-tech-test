@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
 require 'money'
+require_relative 'statement'
 
 class Account
   def initialize
     @balance = BigDecimal('0.00')
-    @statement = []
+    @transactions = []
+    @statement = Statement.new
   end
 
-  attr_reader :balance, :statement
+  attr_reader :balance, :transactions
 
   def current_balance
     '%.2f' % balance
@@ -25,15 +27,14 @@ class Account
   end
 
   def print_statement
-    puts 'date || credit || debit || balance'
-    print_transactions
+    @statement.print_statement(transactions)
   end
 
   private
 
   def record_transaction(deposit, withdraw)
     transaction = { date: todays_date, credit: deposit, debit: withdraw, balance: current_balance }
-    statement.push(transaction)
+    transactions.push(transaction)
   end
 
   def add_to_balance(amount)
@@ -44,19 +45,13 @@ class Account
     @balance -= BigDecimal(amount)
   end
 
-  def print_transactions
-    statement.reverse.each do |transaction|
-      puts "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
-    end
-  end
-
   def todays_date
     time = Time.new
     "#{time.day}/#{time.month}/#{time.year}"
   end
 end
 
-account = Account.new
-account.deposit('2.01')
-p account.balance
-p account.statement
+# account = Account.new
+# account.deposit('2.01')
+# account.withdraw('2.01')
+# account.print_statement
