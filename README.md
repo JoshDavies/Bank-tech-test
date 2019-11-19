@@ -6,7 +6,7 @@ First, clone this repository. Then:
 
 ```bash
 > bundle install
-> bundle exec rspec # Run the tests to ensure it works
+> rspec # Run the tests to ensure it works
 
 ```
   * interact with the code via the IRB REPL.  
@@ -31,7 +31,7 @@ as an account holder
 i want to see the date when each transaction was made.
 
 As an account holder
-to avoid tampering of accidental miss-use
+to avoid tampering or accidental miss-use
 my account info must be stored privately
 
 ```
@@ -43,7 +43,7 @@ transaction = { date: , credit: , debit: , balance: }
 ### Messages:
 - deposit (amount)
 - withdraw (amount)
-- print_account_statement
+- print_statement
 
 -------------
 ### Acceptance criteria

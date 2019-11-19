@@ -41,7 +41,7 @@ describe Account do
       account.withdraw('2.15')
       expect do
         account.print_statement
-      end.to output("credit || debit || balance\n  || 2.15 || 10.00\n12.15 ||   || 12.15\n").to_stdout
+      end.to output("credit || debit || balance\n || 2.15 || 10.00\n12.15 ||  || 12.15\n").to_stdout
     end
   end
 end
