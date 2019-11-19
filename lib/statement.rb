@@ -10,7 +10,11 @@ class Statement
 
   def print_transactions(transactions)
     transactions.reverse.each do |transaction|
-      puts "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
+      date = transaction[:date]
+      credit = transaction[:credit]
+      debit = transaction[:debit]
+      balance = transaction[:balance]
+      puts "#{date} || #{credit} || #{debit} || #{balance}"
     end
   end
 end

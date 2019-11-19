@@ -33,7 +33,12 @@ class Account
   private
 
   def record_transaction(deposit, withdraw)
-    transaction = { date: todays_date, credit: deposit, debit: withdraw, balance: current_balance }
+    transaction = {
+      date: todays_date,
+      credit: deposit,
+      debit: withdraw,
+      balance: current_balance
+    }
     transactions.push(transaction)
   end
 
