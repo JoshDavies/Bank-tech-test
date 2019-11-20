@@ -1,4 +1,5 @@
 # Bank-tech-test
+A back-end program that tracks and prints out an account holders bank transactions.
 
 ## Quickstart
 First, clone this repository. Then:
@@ -58,7 +59,7 @@ logic must be private
 - print_statement (transactions)
 
 -------------
-### Acceptance criteria
+## Acceptance criteria
 
   **Given** a client makes a deposit of 1000 on 10-01-2012  
   **And** a deposit of 2000 on 13-01-2012  
@@ -74,3 +75,20 @@ logic must be private
   ```
 
   ![Screenshot](https://github.com/JoshDavies/Bank-tech-test/blob/master/Screenshot%202019-11-20%20at%2010.50.22%20(2).png?raw=true)
+
+### Solution Design Approach
+I outlined a basic plan, using User Stories to break down the approach into small steps and guide me towards realising the full functionality.
+From the user stories I identified objects and messages and used them to form a basic class diagram.
+
+### Code Structure
+I allowed TDD to naturally guide the structure the program. Extracting the 'Statement' class from 'Account' when it grew too big.
+Once tests were passing I refactored and extracted logic from the top level, hiding it within private methods.
+The abstraction also makes the classes functionality easier to read.
+
+### Reflection
+'Account' class has just grown to the point it is worth considering extracting another class from it. Perhaps separating the task of handling transactions and the task of recording / storing them all.  
+
+The necessity of using 'BigDecimal' is debatable for this challenge, since the criteria does not explicitly require the ability to handle decimal sums.
+However, normal binary floating point arithmetic introduces errors because of the conversion between base 10 and base 2.  
+e.g. 1.2 - 1.1 => 0.09999999999999987  
+BigDecimal guards against such edge cases.
