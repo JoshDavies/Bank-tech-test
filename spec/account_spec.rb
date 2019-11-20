@@ -45,8 +45,9 @@ describe Account do
     it 'prints an accounts previous deposits & withdrawals (reverse order)' do
       statement = double('statement')
       account = described_class.new(statement)
-      allow(statement).to receive(:print_statement).and_return('date || credit || debit || balance')
-      expect(account.print_statement).to eq('date || credit || debit || balance')
+      column_header = 'date || credit || debit || balance'
+      allow(statement).to receive(:print_statement).and_return(column_header)
+      expect(account.print_statement).to eq(column_header)
     end
   end
 end

@@ -3,6 +3,7 @@
 require 'money'
 require_relative 'statement'
 
+# Track a users bank account transactions.
 class Account
   def initialize(statement = Statement.new)
     @balance = BigDecimal('0.00')
@@ -13,7 +14,7 @@ class Account
   attr_reader :balance, :transactions
 
   def current_balance
-    '%.2f' % balance
+    format('%0.2f', balance)
   end
 
   def deposit(amount)
@@ -59,6 +60,6 @@ class Account
 
   def valid_input?(amount)
     return unless amount.to_f.negative? || amount.count('a-zA-Z').positive?
-    raise StandardError.new 'Invalid Input.'
+    raise StandardError.new 'Invalid Input'
   end
 end
