@@ -1,7 +1,6 @@
 # Bank-tech-test
 
 ## Quickstart
-
 First, clone this repository. Then:
 
 ```bash
@@ -12,6 +11,7 @@ First, clone this repository. Then:
 ```
 
 ```bash
+# irb
 > require './lib/account.rb' # require the file
 > account = Account.new # create a new account
 > account.deposit('1.00') # to make a deposit
@@ -21,7 +21,6 @@ First, clone this repository. Then:
 > exit # to quit
 
 ```
-
 
 ----------
 ## User Stories
@@ -73,3 +72,5 @@ logic must be private
   13/01/2012 || 2000.00 || || 3000.00
   10/01/2012 || 1000.00 || || 1000.00
   ```
+
+  ![Screenshot](https://github.com/JoshDavies/Bank-tech-test/blob/master/Screenshot%202019-11-20%20at%2010.50.22%20(2).png?raw=true)
