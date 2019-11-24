@@ -15,7 +15,7 @@ class Account
   # test behaviour itself rather than a change in state.
 
   def current_balance
-    format('%0.2f', balance)
+    format('%0.2f', @balance)
   end
 
   def deposit(amount)
@@ -31,7 +31,7 @@ class Account
   end
 
   def print_statement
-    @printer.print_statement(transactions)
+    @printer.print_statement(@transactions)
   end
 
   private
@@ -43,7 +43,7 @@ class Account
       debit: withdraw,
       balance: current_balance
     }
-    transactions.push(transaction)
+    @transactions.push(transaction)
   end
 
   def add_to_balance(amount)
