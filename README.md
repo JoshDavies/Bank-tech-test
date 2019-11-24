@@ -49,8 +49,8 @@ logic must be private
 ```
 ## Class Diagram (UML)
 ### Objects:
-- Account. transaction = { date: , credit: , debit: , balance: }
-- Statement
+- Account. @statement{ transaction = { date: , credit: , debit: , balance: } }
+- Printer / Display
 
 ### Messages:
 - current_balance
@@ -81,7 +81,7 @@ I outlined a basic plan, using User Stories to break down the approach into smal
 From the user stories I identified objects and messages and used them to form a basic class diagram.
 
 ### Code Structure
-I allowed TDD to naturally guide the structure the program. Extracting the 'Statement' class from 'Account' when it grew too big.
+I allowed TDD to naturally guide the structure the program. Extracting the 'Printer' class from 'Account' when it grew too big.
 Once tests were passing I refactored and extracted logic from the top level, hiding it within private methods.
 The abstraction also makes the classes functionality easier to read.
 
@@ -92,3 +92,9 @@ The necessity of using 'BigDecimal' is debatable for this challenge, since the c
 However, normal binary floating point arithmetic introduces errors because of the conversion between base 10 and base 2.  
 e.g. 1.2 - 1.1 => 0.09999999999999987  
 BigDecimal guards against such edge cases.
+
+The 'Printer' class was originally called 'Statement' but was changed to better reflect the classes functionality.
+(As the class does not store the data, it only prints to the terminal.)  
+
+The next step will be to remove the 'attr_reader', as I realise it unnecessarily exposes the 'transaction' and 'balance' instance variables for test purposes.
+The tests should test behaviour rather than changes in state!
