@@ -43,10 +43,10 @@ describe Account do
 
   describe '#print_statement' do
     it 'prints an accounts previous deposits & withdrawals (reverse order)' do
-      statement = double('statement')
-      account = described_class.new(statement)
+      printer = double('printer')
+      account = described_class.new(printer)
       column_header = 'date || credit || debit || balance'
-      allow(statement).to receive(:print_statement).and_return(column_header)
+      allow(printer).to receive(:print_statement).and_return(column_header)
       expect(account.print_statement).to eq(column_header)
     end
   end

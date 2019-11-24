@@ -1,17 +1,18 @@
 # frozen_string_literal: true
 
 require 'money'
-require_relative 'statement'
+require_relative 'printer'
 
 # Track a users bank account transactions.
 class Account
-  def initialize(statement = Statement.new)
+  def initialize(printer = Printer.new)
     @balance = BigDecimal('0.00')
     @transactions = []
-    @statement = statement
+    @printer = printer
   end
 
-  attr_reader :balance, :transactions
+  attr_reader :balance, :transactions # <- consider removing
+  # test behaviour itself rather than a change in state.
 
   def current_balance
     format('%0.2f', balance)
@@ -30,7 +31,7 @@ class Account
   end
 
   def print_statement
-    @statement.print_statement(transactions)
+    @printer.print_statement(transactions)
   end
 
   private

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'statement'
+require 'printer'
 
-describe Statement do
-  let(:statement) { Statement.new }
+describe Printer do
+  let(:printer) { Printer.new }
 
   let(:transactions) do
     [
@@ -23,7 +23,7 @@ describe Statement do
   describe '#print_statement' do
     it 'prints an accounts previous deposits & withdrawals (reverse order)' do
       expect do
-        statement.print_statement(transactions)
+        printer.print_statement(transactions)
       end.to output(statement_print_out).to_stdout
     end
   end
